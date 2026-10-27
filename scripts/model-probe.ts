@@ -1,4 +1,5 @@
 import { config, safeMessage } from "../src/config.ts";
+import { readCompletion } from "../src/completion.ts";
 const start = Date.now();
 const r = await fetch(config.meterlessUrl + "/chat/completions", {
   method: "POST",
@@ -24,22 +25,31 @@ const r = await fetch(config.meterlessUrl + "/chat/completions", {
     ],
     max_tokens: 4096,
     temperature: 0.1,
-    chat_template_kwargs: { enable_thinking: false },
+    stream: true,
+    stream_options: { include_usage: true },
   }),
   signal: AbortSignal.timeout(180000),
 });
-const data: any = await r.json();
+let data: any;
+let error: string | undefined;
+if (!r.ok) {
+  error = `HTTP ${r.status}`;
+} else {
+  try {
+    data = await readCompletion(r);
+  } catch (e) {
+    error = safeMessage(e);
+  }
+}
 console.log(
   JSON.stringify(
     {
       status: r.status,
       durationMs: Date.now() - start,
-      model: data.model,
-      usage: data.usage,
-      content: data.choices?.[0]?.message?.content,
-      error: data.error
-        ? safeMessage(new Error(JSON.stringify(data.error)))
-        : undefined,
+      model: data?.model,
+      usage: data?.usage,
+      content: data?.choices?.[0]?.message?.content,
+      error,
     },
     null,
     2,

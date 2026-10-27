@@ -1,6 +1,7 @@
 import { randomUUID } from "node:crypto";
 import { config } from "./config.ts";
 import { AppError, type Table, type Row } from "./domain.ts";
+import { readCompletion } from "./completion.ts";
 export async function zetaris(sql: string): Promise<Row[]> {
   if (!config.zetarisKey || !config.zetarisUrl)
     throw new AppError("ZETARIS_CONFIG", "Set Zetaris URL and API key.", 503);
@@ -99,8 +100,8 @@ export class Nightshift {
       ],
       max_tokens: 4096,
       temperature: 0.1,
-      stream: false,
-      chat_template_kwargs: { enable_thinking: false },
+      stream: true,
+      stream_options: { include_usage: true },
     };
     for (let attempt = 0; attempt < 2; attempt++) {
       let r: Response;
@@ -124,6 +125,7 @@ export class Nightshift {
         );
       }
       if (!r.ok) {
+        await r.body?.cancel();
         this.usage.push({
           agent,
           attempt,
@@ -141,7 +143,29 @@ export class Nightshift {
           503,
         );
       }
-      const data: any = await r.json();
+      let data: any;
+      try {
+        data = await readCompletion(r);
+      } catch (error) {
+        this.usage.push({
+          agent,
+          attempt,
+          status: "stream_failed",
+          code: error instanceof AppError ? error.code : "METERLESS_STREAM",
+          accounting: "unavailable for failed request",
+        });
+        if (
+          attempt === 0 &&
+          error instanceof AppError &&
+          ["METERLESS_STREAM", "METERLESS_PROVIDER_TIMEOUT"].includes(
+            error.code,
+          )
+        ) {
+          await new Promise((resolve) => setTimeout(resolve, 2000));
+          continue;
+        }
+        throw error;
+      }
       const content = data.choices?.[0]?.message?.content || "";
       this.usage.push({
         agent,
