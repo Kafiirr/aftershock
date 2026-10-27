@@ -1,0 +1,1159 @@
+{
+  "demands": [
+    {
+      "shelterId": "north",
+      "kits": 60
+    },
+    {
+      "shelterId": "east",
+      "kits": 50
+    },
+    {
+      "shelterId": "south",
+      "kits": 70
+    },
+    {
+      "shelterId": "west",
+      "kits": 60
+    }
+  ],
+  "deadlineMinutes": 180,
+  "idempotencyKey": "final-live-demo-001",
+  "id": "mission-afff7ae6-1f44-4153-9a7b-ef3d229b7ef1",
+  "createdAt": "2026-10-24T13:17:45.889Z",
+  "deadlineAt": "2026-10-24T16:17:45.889Z",
+  "status": "committed",
+  "reason": "240 kits reserved; 0 existing commitments preserved.",
+  "traceId": "mission-afff7ae6-1f44-4153-9a7b-ef3d229b7ef1",
+  "mode": "live",
+  "usage": [
+    {
+      "agent": "Cartographer",
+      "attempt": 0,
+      "status": 502,
+      "accounting": "unavailable for failed request",
+      "inputChars": 1798
+    },
+    {
+      "agent": "Cartographer",
+      "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "usage": {
+        "prompt_tokens": 661,
+        "completion_tokens": 1909,
+        "total_tokens": 2570
+      },
+      "accounting": "provider-reported",
+      "inputChars": 1798,
+      "outputChars": 46
+    },
+    {
+      "agent": "Planner",
+      "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "usage": {
+        "prompt_tokens": 1136,
+        "completion_tokens": 2088,
+        "total_tokens": 3224
+      },
+      "accounting": "provider-reported",
+      "inputChars": 2667,
+      "outputChars": 208
+    },
+    {
+      "agent": "Challenger",
+      "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "usage": {
+        "prompt_tokens": 892,
+        "completion_tokens": 2093,
+        "total_tokens": 2985
+      },
+      "accounting": "provider-reported",
+      "inputChars": 2054,
+      "outputChars": 268
+    }
+  ],
+  "engine": {
+    "name": "Meterless Markovian",
+    "status": "completed",
+    "chunks": [
+      {
+        "id": 1,
+        "tokens": 9,
+        "carryover": "",
+        "content": "Approved 4 allocations; shortfall 0."
+      }
+    ],
+    "chunkConfig": {
+      "chunkSize": 4000,
+      "maxChunks": 3,
+      "carryoverTokens": 256,
+      "overlapTokens": 0
+    },
+    "durationMs": 87319,
+    "accounting": "Engine estimates cover chunk text only. Provider usage below covers every model call. No measured savings claim."
+  },
+  "orders": [
+    {
+      "depotId": "depot-west",
+      "shelterId": "west",
+      "vehicleId": "V5",
+      "kits": 60,
+      "routeIds": [
+        "west-link",
+        "west-shelter"
+      ],
+      "minutes": 17,
+      "id": "dispatch-f8dbc22e-806b-483b-b327-3e1083f73ab6",
+      "missionId": "mission-afff7ae6-1f44-4153-9a7b-ef3d229b7ef1",
+      "status": "reserved",
+      "createdAt": "2026-10-24T13:26:30.994Z",
+      "expiresAt": "2026-10-24T13:41:30.994Z",
+      "deadlineAt": "2026-10-24T16:17:45.889Z",
+      "evidence": [
+        {
+          "table": "inventory",
+          "id": "depot-west",
+          "version": 1,
+          "hash": "c581b91aea551d3e16df",
+          "observedAt": "2026-10-24T13:23:57.853Z",
+          "source": "zetaris:aftershock_ops.inventory",
+          "query": "SELECT * FROM aftershock_ops.inventory"
+        },
+        {
+          "table": "shelters",
+          "id": "west",
+          "version": 1,
+          "hash": "a65fdab9975aba320251",
+          "observedAt": "2026-10-24T13:23:58.981Z",
+          "source": "zetaris:aftershock_ops.shelters",
+          "query": "SELECT * FROM aftershock_ops.shelters"
+        },
+        {
+          "table": "fleet",
+          "id": "V5",
+          "version": 1,
+          "hash": "720b88cb22050de6c3e2",
+          "observedAt": "2026-10-24T13:23:59.347Z",
+          "source": "zetaris:aftershock_ops.fleet",
+          "query": "SELECT * FROM aftershock_ops.fleet"
+        },
+        {
+          "table": "roads",
+          "id": "west-link",
+          "version": 1,
+          "hash": "991b803275269007b604",
+          "observedAt": "2026-10-24T13:23:59.702Z",
+          "source": "zetaris:aftershock_ops.roads",
+          "query": "SELECT * FROM aftershock_ops.roads"
+        },
+        {
+          "table": "roads",
+          "id": "west-shelter",
+          "version": 1,
+          "hash": "34a1c0e54f3abe1f25b6",
+          "observedAt": "2026-10-24T13:23:59.702Z",
+          "source": "zetaris:aftershock_ops.roads",
+          "query": "SELECT * FROM aftershock_ops.roads"
+        },
+        {
+          "table": "maintenance",
+          "id": "V5",
+          "version": 1,
+          "hash": "103f3336af6e654ebe2e",
+          "observedAt": "2026-10-24T13:25:56.031Z",
+          "source": "zetaris:aftershock_ops.maintenance",
+          "query": "SELECT * FROM aftershock_ops.maintenance"
+        }
+      ],
+      "checks": [
+        "stock",
+        "capacity",
+        "availability",
+        "maintenance",
+        "route",
+        "deadline",
+        "source versions"
+      ],
+      "reason": "Preconditions checked against current authoritative sandbox state."
+    },
+    {
+      "depotId": "depot-east",
+      "shelterId": "south",
+      "vehicleId": "V4",
+      "kits": 70,
+      "routeIds": [
+        "east-link",
+        "south-east"
+      ],
+      "minutes": 19,
+      "id": "dispatch-f34ef5d4-5330-4c9d-9ecb-74d03c97a86b",
+      "missionId": "mission-afff7ae6-1f44-4153-9a7b-ef3d229b7ef1",
+      "status": "reserved",
+      "createdAt": "2026-10-24T13:26:30.994Z",
+      "expiresAt": "2026-10-24T13:41:30.994Z",
+      "deadlineAt": "2026-10-24T16:17:45.889Z",
+      "evidence": [
+        {
+          "table": "inventory",
+          "id": "depot-east",
+          "version": 1,
+          "hash": "ef26742f5e76b74b0b66",
+          "observedAt": "2026-10-24T13:23:57.853Z",
+          "source": "zetaris:aftershock_ops.inventory",
+          "query": "SELECT * FROM aftershock_ops.inventory"
+        },
+        {
+          "table": "shelters",
+          "id": "south",
+          "version": 1,
+          "hash": "1d22eaf442afacc368de",
+          "observedAt": "2026-10-24T13:23:58.981Z",
+          "source": "zetaris:aftershock_ops.shelters",
+          "query": "SELECT * FROM aftershock_ops.shelters"
+        },
+        {
+          "table": "fleet",
+          "id": "V4",
+          "version": 1,
+          "hash": "2844e8c24f418eae9a84",
+          "observedAt": "2026-10-24T13:23:59.347Z",
+          "source": "zetaris:aftershock_ops.fleet",
+          "query": "SELECT * FROM aftershock_ops.fleet"
+        },
+        {
+          "table": "roads",
+          "id": "east-link",
+          "version": 1,
+          "hash": "4a259be9a178e59cf9ba",
+          "observedAt": "2026-10-24T13:23:59.702Z",
+          "source": "zetaris:aftershock_ops.roads",
+          "query": "SELECT * FROM aftershock_ops.roads"
+        },
+        {
+          "table": "roads",
+          "id": "south-east",
+          "version": 1,
+          "hash": "39417feebd141887152e",
+          "observedAt": "2026-10-24T13:23:59.702Z",
+          "source": "zetaris:aftershock_ops.roads",
+          "query": "SELECT * FROM aftershock_ops.roads"
+        },
+        {
+          "table": "maintenance",
+          "id": "V4",
+          "version": 1,
+          "hash": "53c15bc1b2ce3c260376",
+          "observedAt": "2026-10-24T13:25:56.031Z",
+          "source": "zetaris:aftershock_ops.maintenance",
+          "query": "SELECT * FROM aftershock_ops.maintenance"
+        }
+      ],
+      "checks": [
+        "stock",
+        "capacity",
+        "availability",
+        "maintenance",
+        "route",
+        "deadline",
+        "source versions"
+      ],
+      "reason": "Preconditions checked against current authoritative sandbox state."
+    },
+    {
+      "depotId": "depot-east",
+      "shelterId": "east",
+      "vehicleId": "V3",
+      "kits": 50,
+      "routeIds": [
+        "east-link",
+        "east-shelter"
+      ],
+      "minutes": 15,
+      "id": "dispatch-b3d47116-b127-4a18-aa9e-ad6fee42a3f2",
+      "missionId": "mission-afff7ae6-1f44-4153-9a7b-ef3d229b7ef1",
+      "status": "reserved",
+      "createdAt": "2026-10-24T13:26:30.994Z",
+      "expiresAt": "2026-10-24T13:41:30.994Z",
+      "deadlineAt": "2026-10-24T16:17:45.889Z",
+      "evidence": [
+        {
+          "table": "inventory",
+          "id": "depot-east",
+          "version": 1,
+          "hash": "ef26742f5e76b74b0b66",
+          "observedAt": "2026-10-24T13:23:57.853Z",
+          "source": "zetaris:aftershock_ops.inventory",
+          "query": "SELECT * FROM aftershock_ops.inventory"
+        },
+        {
+          "table": "shelters",
+          "id": "east",
+          "version": 1,
+          "hash": "d8305ee97133cdb0cd3a",
+          "observedAt": "2026-10-24T13:23:58.981Z",
+          "source": "zetaris:aftershock_ops.shelters",
+          "query": "SELECT * FROM aftershock_ops.shelters"
+        },
+        {
+          "table": "fleet",
+          "id": "V3",
+          "version": 1,
+          "hash": "8efe28ff537d19fbb0a7",
+          "observedAt": "2026-10-24T13:23:59.347Z",
+          "source": "zetaris:aftershock_ops.fleet",
+          "query": "SELECT * FROM aftershock_ops.fleet"
+        },
+        {
+          "table": "roads",
+          "id": "east-link",
+          "version": 1,
+          "hash": "4a259be9a178e59cf9ba",
+          "observedAt": "2026-10-24T13:23:59.702Z",
+          "source": "zetaris:aftershock_ops.roads",
+          "query": "SELECT * FROM aftershock_ops.roads"
+        },
+        {
+          "table": "roads",
+          "id": "east-shelter",
+          "version": 1,
+          "hash": "1647fc846de292346099",
+          "observedAt": "2026-10-24T13:23:59.702Z",
+          "source": "zetaris:aftershock_ops.roads",
+          "query": "SELECT * FROM aftershock_ops.roads"
+        },
+        {
+          "table": "maintenance",
+          "id": "V3",
+          "version": 1,
+          "hash": "aa93e6370549f16973b9",
+          "observedAt": "2026-10-24T13:25:56.031Z",
+          "source": "zetaris:aftershock_ops.maintenance",
+          "query": "SELECT * FROM aftershock_ops.maintenance"
+        }
+      ],
+      "checks": [
+        "stock",
+        "capacity",
+        "availability",
+        "maintenance",
+        "route",
+        "deadline",
+        "source versions"
+      ],
+      "reason": "Preconditions checked against current authoritative sandbox state."
+    },
+    {
+      "depotId": "depot-west",
+      "shelterId": "north",
+      "vehicleId": "V2",
+      "kits": 60,
+      "routeIds": [
+        "west-link",
+        "bridge"
+      ],
+      "minutes": 13,
+      "id": "dispatch-a7d14ba1-d3ab-45f9-bff7-53aa94c819be",
+      "missionId": "mission-afff7ae6-1f44-4153-9a7b-ef3d229b7ef1",
+      "status": "reserved",
+      "createdAt": "2026-10-24T13:26:30.994Z",
+      "expiresAt": "2026-10-24T13:41:30.994Z",
+      "deadlineAt": "2026-10-24T16:17:45.889Z",
+      "evidence": [
+        {
+          "table": "inventory",
+          "id": "depot-west",
+          "version": 1,
+          "hash": "c581b91aea551d3e16df",
+          "observedAt": "2026-10-24T13:23:57.853Z",
+          "source": "zetaris:aftershock_ops.inventory",
+          "query": "SELECT * FROM aftershock_ops.inventory"
+        },
+        {
+          "table": "shelters",
+          "id": "north",
+          "version": 1,
+          "hash": "c601b2f4f2523c8e65fa",
+          "observedAt": "2026-10-24T13:23:58.981Z",
+          "source": "zetaris:aftershock_ops.shelters",
+          "query": "SELECT * FROM aftershock_ops.shelters"
+        },
+        {
+          "table": "fleet",
+          "id": "V2",
+          "version": 1,
+          "hash": "61bc1622e46534c5989d",
+          "observedAt": "2026-10-24T13:23:59.347Z",
+          "source": "zetaris:aftershock_ops.fleet",
+          "query": "SELECT * FROM aftershock_ops.fleet"
+        },
+        {
+          "table": "roads",
+          "id": "west-link",
+          "version": 1,
+          "hash": "991b803275269007b604",
+          "observedAt": "2026-10-24T13:23:59.702Z",
+          "source": "zetaris:aftershock_ops.roads",
+          "query": "SELECT * FROM aftershock_ops.roads"
+        },
+        {
+          "table": "roads",
+          "id": "bridge",
+          "version": 3,
+          "hash": "9a08b69865893b42d595",
+          "observedAt": "2026-10-24T13:23:59.702Z",
+          "source": "zetaris:aftershock_ops.roads",
+          "query": "SELECT * FROM aftershock_ops.roads"
+        },
+        {
+          "table": "maintenance",
+          "id": "V2",
+          "version": 1,
+          "hash": "f74c292e8d95237775be",
+          "observedAt": "2026-10-24T13:25:56.031Z",
+          "source": "zetaris:aftershock_ops.maintenance",
+          "query": "SELECT * FROM aftershock_ops.maintenance"
+        }
+      ],
+      "checks": [
+        "stock",
+        "capacity",
+        "availability",
+        "maintenance",
+        "route",
+        "deadline",
+        "source versions"
+      ],
+      "reason": "Preconditions checked against current authoritative sandbox state."
+    }
+  ],
+  "trace": [
+    {
+      "id": "b6832207-2c9e-4dcb-91be-0be2c9840c3b",
+      "timestamp": "2026-10-24T13:18:16.488Z",
+      "traceId": "mission-afff7ae6-1f44-4153-9a7b-ef3d229b7ef1",
+      "agent": "Orchestrator",
+      "action": "error",
+      "detail": {
+        "code": "INTERNAL",
+        "message": "The operation was aborted due to timeout"
+      }
+    },
+    {
+      "id": "3f622a5b-7fc1-4349-b072-05d21814473c",
+      "timestamp": "2026-10-24T13:20:28.661Z",
+      "traceId": "mission-afff7ae6-1f44-4153-9a7b-ef3d229b7ef1",
+      "agent": "Cartographer",
+      "action": "zetaris_query",
+      "target": "Planner",
+      "detail": {
+        "table": "inventory",
+        "rows": 2,
+        "query": "SELECT * FROM aftershock_ops.inventory",
+        "versions": [
+          {
+            "id": "depot-east",
+            "version": 1
+          },
+          {
+            "id": "depot-west",
+            "version": 1
+          }
+        ],
+        "provider": "Zetaris"
+      }
+    },
+    {
+      "id": "2269005e-c76b-4483-915e-5520fdd5a239",
+      "timestamp": "2026-10-24T13:20:29.222Z",
+      "traceId": "mission-afff7ae6-1f44-4153-9a7b-ef3d229b7ef1",
+      "agent": "Cartographer",
+      "action": "zetaris_query",
+      "target": "Planner",
+      "detail": {
+        "table": "shelters",
+        "rows": 4,
+        "query": "SELECT * FROM aftershock_ops.shelters",
+        "versions": [
+          {
+            "id": "north",
+            "version": 1
+          },
+          {
+            "id": "east",
+            "version": 1
+          },
+          {
+            "id": "south",
+            "version": 1
+          },
+          {
+            "id": "west",
+            "version": 1
+          }
+        ],
+        "provider": "Zetaris"
+      }
+    },
+    {
+      "id": "9de852bb-307f-4a1d-8a8b-f5890b48cad2",
+      "timestamp": "2026-10-24T13:20:29.900Z",
+      "traceId": "mission-afff7ae6-1f44-4153-9a7b-ef3d229b7ef1",
+      "agent": "Cartographer",
+      "action": "zetaris_query",
+      "target": "Planner",
+      "detail": {
+        "table": "fleet",
+        "rows": 5,
+        "query": "SELECT * FROM aftershock_ops.fleet",
+        "versions": [
+          {
+            "id": "V1",
+            "version": 1
+          },
+          {
+            "id": "V2",
+            "version": 1
+          },
+          {
+            "id": "V3",
+            "version": 1
+          },
+          {
+            "id": "V4",
+            "version": 1
+          },
+          {
+            "id": "V5",
+            "version": 1
+          }
+        ],
+        "provider": "Zetaris"
+      }
+    },
+    {
+      "id": "d62945c2-5051-4735-8bc5-dfbafb0d8ede",
+      "timestamp": "2026-10-24T13:20:30.702Z",
+      "traceId": "mission-afff7ae6-1f44-4153-9a7b-ef3d229b7ef1",
+      "agent": "Cartographer",
+      "action": "zetaris_query",
+      "target": "Planner",
+      "detail": {
+        "table": "roads",
+        "rows": 9,
+        "query": "SELECT * FROM aftershock_ops.roads",
+        "versions": [
+          {
+            "id": "west-link",
+            "version": 1
+          },
+          {
+            "id": "east-link",
+            "version": 1
+          },
+          {
+            "id": "bridge",
+            "version": 3
+          },
+          {
+            "id": "north-east",
+            "version": 1
+          },
+          {
+            "id": "west-shelter",
+            "version": 1
+          },
+          {
+            "id": "east-shelter",
+            "version": 1
+          },
+          {
+            "id": "south-west",
+            "version": 1
+          },
+          {
+            "id": "south-east",
+            "version": 1
+          },
+          {
+            "id": "bypass",
+            "version": 1
+          }
+        ],
+        "provider": "Zetaris"
+      }
+    },
+    {
+      "id": "6f442aa3-8fbd-4bbd-ab47-8c5ebf192296",
+      "timestamp": "2026-10-24T13:22:02.033Z",
+      "traceId": "mission-afff7ae6-1f44-4153-9a7b-ef3d229b7ef1",
+      "agent": "Orchestrator",
+      "action": "error",
+      "detail": {
+        "code": "METERLESS_HTTP",
+        "message": "Nightshift returned HTTP 502."
+      }
+    },
+    {
+      "id": "e69fc0c4-fd19-4460-bc34-b37daf622996",
+      "timestamp": "2026-10-24T13:23:57.854Z",
+      "traceId": "mission-afff7ae6-1f44-4153-9a7b-ef3d229b7ef1",
+      "agent": "Cartographer",
+      "action": "zetaris_query",
+      "target": "Planner",
+      "detail": {
+        "table": "inventory",
+        "rows": 2,
+        "query": "SELECT * FROM aftershock_ops.inventory",
+        "versions": [
+          {
+            "id": "depot-east",
+            "version": 1
+          },
+          {
+            "id": "depot-west",
+            "version": 1
+          }
+        ],
+        "provider": "Zetaris"
+      }
+    },
+    {
+      "id": "ee2c8198-6589-40a7-b7e4-46903f745be3",
+      "timestamp": "2026-10-24T13:23:58.981Z",
+      "traceId": "mission-afff7ae6-1f44-4153-9a7b-ef3d229b7ef1",
+      "agent": "Cartographer",
+      "action": "zetaris_query",
+      "target": "Planner",
+      "detail": {
+        "table": "shelters",
+        "rows": 4,
+        "query": "SELECT * FROM aftershock_ops.shelters",
+        "versions": [
+          {
+            "id": "north",
+            "version": 1
+          },
+          {
+            "id": "east",
+            "version": 1
+          },
+          {
+            "id": "south",
+            "version": 1
+          },
+          {
+            "id": "west",
+            "version": 1
+          }
+        ],
+        "provider": "Zetaris"
+      }
+    },
+    {
+      "id": "e3f53c55-7c79-48cb-8ec8-f31e8607edbe",
+      "timestamp": "2026-10-24T13:23:59.347Z",
+      "traceId": "mission-afff7ae6-1f44-4153-9a7b-ef3d229b7ef1",
+      "agent": "Cartographer",
+      "action": "zetaris_query",
+      "target": "Planner",
+      "detail": {
+        "table": "fleet",
+        "rows": 5,
+        "query": "SELECT * FROM aftershock_ops.fleet",
+        "versions": [
+          {
+            "id": "V1",
+            "version": 1
+          },
+          {
+            "id": "V2",
+            "version": 1
+          },
+          {
+            "id": "V3",
+            "version": 1
+          },
+          {
+            "id": "V4",
+            "version": 1
+          },
+          {
+            "id": "V5",
+            "version": 1
+          }
+        ],
+        "provider": "Zetaris"
+      }
+    },
+    {
+      "id": "368e8cff-2b3b-48af-8ff0-962e2832c596",
+      "timestamp": "2026-10-24T13:23:59.702Z",
+      "traceId": "mission-afff7ae6-1f44-4153-9a7b-ef3d229b7ef1",
+      "agent": "Cartographer",
+      "action": "zetaris_query",
+      "target": "Planner",
+      "detail": {
+        "table": "roads",
+        "rows": 9,
+        "query": "SELECT * FROM aftershock_ops.roads",
+        "versions": [
+          {
+            "id": "west-link",
+            "version": 1
+          },
+          {
+            "id": "east-link",
+            "version": 1
+          },
+          {
+            "id": "bridge",
+            "version": 3
+          },
+          {
+            "id": "north-east",
+            "version": 1
+          },
+          {
+            "id": "west-shelter",
+            "version": 1
+          },
+          {
+            "id": "east-shelter",
+            "version": 1
+          },
+          {
+            "id": "south-west",
+            "version": 1
+          },
+          {
+            "id": "south-east",
+            "version": 1
+          },
+          {
+            "id": "bypass",
+            "version": 1
+          }
+        ],
+        "provider": "Zetaris"
+      }
+    },
+    {
+      "id": "e21bb7af-b47a-47e8-bf8e-5fe3c3da3d2e",
+      "timestamp": "2026-10-24T13:25:02.074Z",
+      "traceId": "mission-afff7ae6-1f44-4153-9a7b-ef3d229b7ef1",
+      "agent": "Cartographer",
+      "action": "assess_evidence",
+      "target": "Planner",
+      "detail": {
+        "concerns": [
+          "V1"
+        ],
+        "nextSource": "maintenance"
+      }
+    },
+    {
+      "id": "ae580ac1-25f1-4ec8-ae06-b3f2ddc27f7c",
+      "timestamp": "2026-10-24T13:25:02.081Z",
+      "traceId": "mission-afff7ae6-1f44-4153-9a7b-ef3d229b7ef1",
+      "agent": "Markovian",
+      "action": "resume",
+      "detail": {
+        "step": 0,
+        "carryover": "",
+        "mode": "live",
+        "exactConstraints": "Re-read from structured world state; never from compressed text."
+      }
+    },
+    {
+      "id": "e3fe6fea-6413-47d2-a77e-fc29ff83ceb0",
+      "timestamp": "2026-10-24T13:25:55.599Z",
+      "traceId": "mission-afff7ae6-1f44-4153-9a7b-ef3d229b7ef1",
+      "agent": "Planner",
+      "action": "propose",
+      "target": "Challenger",
+      "detail": {
+        "step": 0,
+        "id": "option-1",
+        "allocations": [
+          {
+            "depotId": "depot-west",
+            "shelterId": "north",
+            "vehicleId": "V2",
+            "kits": 60,
+            "routeIds": [
+              "west-link",
+              "bridge"
+            ],
+            "minutes": 13
+          },
+          {
+            "depotId": "depot-east",
+            "shelterId": "east",
+            "vehicleId": "V3",
+            "kits": 50,
+            "routeIds": [
+              "east-link",
+              "east-shelter"
+            ],
+            "minutes": 15
+          },
+          {
+            "depotId": "depot-east",
+            "shelterId": "south",
+            "vehicleId": "V4",
+            "kits": 70,
+            "routeIds": [
+              "east-link",
+              "south-east"
+            ],
+            "minutes": 19
+          },
+          {
+            "depotId": "depot-west",
+            "shelterId": "west",
+            "vehicleId": "V5",
+            "kits": 60,
+            "routeIds": [
+              "west-link",
+              "west-shelter"
+            ],
+            "minutes": 17
+          }
+        ],
+        "shortfall": 0,
+        "minutes": 64,
+        "reason": "Satisfies all demand (north 60, east 50, south 70, west 60) with zero shortfall; total travel time 64 minutes; assigns available vehicles V2\u2013V5 to depots respecting routing.",
+        "policy": "Nightshift model selection"
+      }
+    },
+    {
+      "id": "4a64d577-283d-4a7f-9851-3de15d0b3d37",
+      "timestamp": "2026-10-24T13:25:55.605Z",
+      "traceId": "mission-afff7ae6-1f44-4153-9a7b-ef3d229b7ef1",
+      "agent": "Challenger",
+      "action": "request_evidence",
+      "target": "Cartographer",
+      "detail": {
+        "table": "maintenance",
+        "reason": "Roster availability alone does not establish current vehicle clearance."
+      }
+    },
+    {
+      "id": "bbb2f13e-47ae-410e-84b6-66b4092dd17a",
+      "timestamp": "2026-10-24T13:25:56.031Z",
+      "traceId": "mission-afff7ae6-1f44-4153-9a7b-ef3d229b7ef1",
+      "agent": "Cartographer",
+      "action": "zetaris_query",
+      "target": "Planner",
+      "detail": {
+        "table": "maintenance",
+        "rows": 5,
+        "query": "SELECT * FROM aftershock_ops.maintenance",
+        "versions": [
+          {
+            "id": "V1",
+            "version": 1
+          },
+          {
+            "id": "V2",
+            "version": 1
+          },
+          {
+            "id": "V3",
+            "version": 1
+          },
+          {
+            "id": "V4",
+            "version": 1
+          },
+          {
+            "id": "V5",
+            "version": 1
+          }
+        ],
+        "provider": "Zetaris"
+      }
+    },
+    {
+      "id": "abe05d21-98fb-45e6-8d71-4de079e9d89d",
+      "timestamp": "2026-10-24T13:25:56.052Z",
+      "traceId": "mission-afff7ae6-1f44-4153-9a7b-ef3d229b7ef1",
+      "agent": "Cartographer",
+      "action": "reconcile",
+      "target": "Challenger",
+      "detail": {
+        "conflicts": [
+          {
+            "vehicle": "V1",
+            "rosterAvailable": true,
+            "hold": true,
+            "version": 1
+          }
+        ],
+        "source": "Current maintenance ledger"
+      }
+    },
+    {
+      "id": "33503ab7-2de1-4810-a5eb-af9c36217529",
+      "timestamp": "2026-10-24T13:26:29.393Z",
+      "traceId": "mission-afff7ae6-1f44-4153-9a7b-ef3d229b7ef1",
+      "agent": "Challenger",
+      "action": "approve",
+      "target": "Executor",
+      "detail": {
+        "checks": [
+          "stock",
+          "capacity",
+          "availability",
+          "maintenance",
+          "route continuity",
+          "arrival deadline"
+        ],
+        "reason": "All remaining demands are fulfilled precisely: north 60, east 50, south 70, west 60 kits allocated; zero shortfall; total travel time 64 minutes (13+15+19+17); assigned vehicles V2\u2013V5 are maintenance-clear and routed without conflict.",
+        "shortfall": 0
+      }
+    },
+    {
+      "id": "4bb091cb-cd62-46cf-9b25-792ea66d7cdf",
+      "timestamp": "2026-10-24T13:26:29.689Z",
+      "traceId": "mission-afff7ae6-1f44-4153-9a7b-ef3d229b7ef1",
+      "agent": "Cartographer",
+      "action": "zetaris_query",
+      "target": "Planner",
+      "detail": {
+        "table": "inventory",
+        "rows": 2,
+        "query": "SELECT * FROM aftershock_ops.inventory",
+        "versions": [
+          {
+            "id": "depot-east",
+            "version": 1
+          },
+          {
+            "id": "depot-west",
+            "version": 1
+          }
+        ],
+        "provider": "Zetaris"
+      }
+    },
+    {
+      "id": "19dce0d2-9c45-4133-9ce9-18f11d890b1d",
+      "timestamp": "2026-10-24T13:26:29.999Z",
+      "traceId": "mission-afff7ae6-1f44-4153-9a7b-ef3d229b7ef1",
+      "agent": "Cartographer",
+      "action": "zetaris_query",
+      "target": "Planner",
+      "detail": {
+        "table": "shelters",
+        "rows": 4,
+        "query": "SELECT * FROM aftershock_ops.shelters",
+        "versions": [
+          {
+            "id": "north",
+            "version": 1
+          },
+          {
+            "id": "east",
+            "version": 1
+          },
+          {
+            "id": "south",
+            "version": 1
+          },
+          {
+            "id": "west",
+            "version": 1
+          }
+        ],
+        "provider": "Zetaris"
+      }
+    },
+    {
+      "id": "8b1b18fb-e70c-433e-86bd-a30d00cb1046",
+      "timestamp": "2026-10-24T13:26:30.337Z",
+      "traceId": "mission-afff7ae6-1f44-4153-9a7b-ef3d229b7ef1",
+      "agent": "Cartographer",
+      "action": "zetaris_query",
+      "target": "Planner",
+      "detail": {
+        "table": "fleet",
+        "rows": 5,
+        "query": "SELECT * FROM aftershock_ops.fleet",
+        "versions": [
+          {
+            "id": "V1",
+            "version": 1
+          },
+          {
+            "id": "V2",
+            "version": 1
+          },
+          {
+            "id": "V3",
+            "version": 1
+          },
+          {
+            "id": "V4",
+            "version": 1
+          },
+          {
+            "id": "V5",
+            "version": 1
+          }
+        ],
+        "provider": "Zetaris"
+      }
+    },
+    {
+      "id": "aca78c05-8b8a-484c-a34b-2be52a4dd14f",
+      "timestamp": "2026-10-24T13:26:30.681Z",
+      "traceId": "mission-afff7ae6-1f44-4153-9a7b-ef3d229b7ef1",
+      "agent": "Cartographer",
+      "action": "zetaris_query",
+      "target": "Planner",
+      "detail": {
+        "table": "roads",
+        "rows": 9,
+        "query": "SELECT * FROM aftershock_ops.roads",
+        "versions": [
+          {
+            "id": "west-link",
+            "version": 1
+          },
+          {
+            "id": "east-link",
+            "version": 1
+          },
+          {
+            "id": "bridge",
+            "version": 3
+          },
+          {
+            "id": "north-east",
+            "version": 1
+          },
+          {
+            "id": "west-shelter",
+            "version": 1
+          },
+          {
+            "id": "east-shelter",
+            "version": 1
+          },
+          {
+            "id": "south-west",
+            "version": 1
+          },
+          {
+            "id": "south-east",
+            "version": 1
+          },
+          {
+            "id": "bypass",
+            "version": 1
+          }
+        ],
+        "provider": "Zetaris"
+      }
+    },
+    {
+      "id": "64ca08cb-7171-4c95-8c74-c0e1ceafef2a",
+      "timestamp": "2026-10-24T13:26:30.989Z",
+      "traceId": "mission-afff7ae6-1f44-4153-9a7b-ef3d229b7ef1",
+      "agent": "Cartographer",
+      "action": "zetaris_query",
+      "target": "Planner",
+      "detail": {
+        "table": "maintenance",
+        "rows": 5,
+        "query": "SELECT * FROM aftershock_ops.maintenance",
+        "versions": [
+          {
+            "id": "V1",
+            "version": 1
+          },
+          {
+            "id": "V2",
+            "version": 1
+          },
+          {
+            "id": "V3",
+            "version": 1
+          },
+          {
+            "id": "V4",
+            "version": 1
+          },
+          {
+            "id": "V5",
+            "version": 1
+          }
+        ],
+        "provider": "Zetaris"
+      }
+    },
+    {
+      "id": "3c3d760c-8b8b-496e-9a95-7a69eeeb3fb1",
+      "timestamp": "2026-10-24T13:26:31.046Z",
+      "traceId": "mission-afff7ae6-1f44-4153-9a7b-ef3d229b7ef1",
+      "agent": "Executor",
+      "action": "reserved",
+      "target": "Watcher",
+      "detail": {
+        "orderIds": [
+          "dispatch-f8dbc22e-806b-483b-b327-3e1083f73ab6",
+          "dispatch-f34ef5d4-5330-4c9d-9ecb-74d03c97a86b",
+          "dispatch-b3d47116-b127-4a18-aa9e-ad6fee42a3f2",
+          "dispatch-a7d14ba1-d3ab-45f9-bff7-53aa94c819be"
+        ],
+        "shortfall": 0,
+        "retained": 0,
+        "usage": [
+          {
+            "agent": "Cartographer",
+            "attempt": 0,
+            "status": 502,
+            "accounting": "unavailable for failed request",
+            "inputChars": 1798
+          },
+          {
+            "agent": "Cartographer",
+            "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+            "usage": {
+              "prompt_tokens": 661,
+              "completion_tokens": 1909,
+              "total_tokens": 2570
+            },
+            "accounting": "provider-reported",
+            "inputChars": 1798,
+            "outputChars": 46
+          },
+          {
+            "agent": "Planner",
+            "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+            "usage": {
+              "prompt_tokens": 1136,
+              "completion_tokens": 2088,
+              "total_tokens": 3224
+            },
+            "accounting": "provider-reported",
+            "inputChars": 2667,
+            "outputChars": 208
+          },
+          {
+            "agent": "Challenger",
+            "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+            "usage": {
+              "prompt_tokens": 892,
+              "completion_tokens": 2093,
+              "total_tokens": 2985
+            },
+            "accounting": "provider-reported",
+            "inputChars": 2054,
+            "outputChars": 268
+          }
+        ]
+      }
+    }
+  ]
+}

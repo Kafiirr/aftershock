@@ -1,0 +1,14 @@
+{
+  "demands": [
+    {
+      "shelterId": "east",
+      "kits": 35
+    },
+    {
+      "shelterId": "south",
+      "kits": 45
+    }
+  ],
+  "deadlineMinutes": 90,
+  "idempotencyKey": "example-two-shelters"
+}

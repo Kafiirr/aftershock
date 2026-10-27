@@ -1,0 +1,16 @@
+{
+  "mode": "live",
+  "checkedAt": "2026-10-24T13:20:22.582Z",
+  "zetaris": {
+    "status": "pass",
+    "rows": [
+      {
+        "one": "1"
+      }
+    ]
+  },
+  "nightshift": {
+    "status": "pass",
+    "routeCount": 77
+  }
+}

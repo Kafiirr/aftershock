@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "mode": "live",
+  "missionId": "mission-ffe6754a-6f29-4625-af1a-d6d7ed6cc333",
+  "originalOrder": "dispatch-0f167fe8-9413-474c-9043-be18c22950a7",
+  "replacementOrder": "dispatch-92813e70-e6dd-4efe-8deb-7bece79970ef",
+  "preservedOrder": "dispatch-03eb5ccb-c319-4777-b4fc-568256a7bedc",
+  "recoveryMs": 102579,
+  "models": [
+    "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "nvidia/nemotron-3.5-lightning-30b-a3b"
+  ],
+  "knownLimit": "One measured synthetic run; not a field or performance guarantee."
+}

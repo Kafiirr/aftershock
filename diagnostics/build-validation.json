@@ -1,0 +1,28 @@
+{
+  "checkedAt": "2026-10-24T13:27:35.427226+00:00",
+  "typecheck": "passed",
+  "applicationTests": {
+    "passed": 13,
+    "failed": 0
+  },
+  "worldModelConformance": {
+    "passed": 8,
+    "failed": 0
+  },
+  "markovianConformance": {
+    "passed": 8,
+    "failed": 0
+  },
+  "browser": "see browser-check.json",
+  "docker": "see docker-check.json",
+  "credentialScan": {
+    "files": 72,
+    "matches": []
+  },
+  "app": {
+    "status": "up",
+    "mode": "live"
+  },
+  "liveReservedKits": 240,
+  "liveReservations": 4
+}

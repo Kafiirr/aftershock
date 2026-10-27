@@ -1,0 +1,10 @@
+{
+  "demands": [
+    {
+      "shelterId": "north",
+      "kits": 60
+    }
+  ],
+  "deadlineMinutes": 90,
+  "idempotencyKey": "example-north"
+}

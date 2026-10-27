@@ -1,0 +1,29 @@
+{
+  "base": "http://172.27.58.103:4318",
+  "results": [
+    {
+      "statement": "CREATE LIGHTNING DATABASE aftershock_ops DESCRIBE BY \"AFTERSHOCK synthetic operations\"",
+      "status": "registered"
+    },
+    {
+      "statement": "CREATE LIGHTNING REST TABLE inventory FROM aftershock_ops REQUEST (endpoint \"http://172.27.58.103:4318/source/inventory\", method \"get\", response_type \"json\", http_encoding \"URLENCODED\") HEADER () BODY ()",
+      "status": "registered"
+    },
+    {
+      "statement": "CREATE LIGHTNING REST TABLE shelters FROM aftershock_ops REQUEST (endpoint \"http://172.27.58.103:4318/source/shelters\", method \"get\", response_type \"json\", http_encoding \"URLENCODED\") HEADER () BODY ()",
+      "status": "registered"
+    },
+    {
+      "statement": "CREATE LIGHTNING REST TABLE fleet FROM aftershock_ops REQUEST (endpoint \"http://172.27.58.103:4318/source/fleet\", method \"get\", response_type \"json\", http_encoding \"URLENCODED\") HEADER () BODY ()",
+      "status": "registered"
+    },
+    {
+      "statement": "CREATE LIGHTNING REST TABLE roads FROM aftershock_ops REQUEST (endpoint \"http://172.27.58.103:4318/source/roads\", method \"get\", response_type \"json\", http_encoding \"URLENCODED\") HEADER () BODY ()",
+      "status": "registered"
+    },
+    {
+      "statement": "CREATE LIGHTNING REST TABLE maintenance FROM aftershock_ops REQUEST (endpoint \"http://172.27.58.103:4318/source/maintenance\", method \"get\", response_type \"json\", http_encoding \"URLENCODED\") HEADER () BODY ()",
+      "status": "registered"
+    }
+  ]
+}

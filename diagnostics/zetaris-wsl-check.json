@@ -1,0 +1,18 @@
+{
+  "checked_at": "2026-10-23T12:24:13.040688+00:00",
+  "environment": "Ubuntu WSL",
+  "ui_url": "http://localhost:3000",
+  "api_url": "http://localhost:8888/api/v1.0",
+  "ui_http_status": 200,
+  "org_id": 1,
+  "sql_http_status": 200,
+  "sql": "SELECT 1 AS one",
+  "sql_passed": true,
+  "jdbc_port_reachable": true,
+  "platform_verification": {
+    "passed": 9,
+    "failed": 0,
+    "checked_at": "2026-10-23T12:26:46.279215+00:00",
+    "bootstrap_exit_code": 0
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "checkedAt": "2026-10-27T14:35:07.696160+00:00",
+  "mode": "live",
+  "synthetic": true,
+  "orderId": "dispatch-8b639ad6-38db-4c79-bc45-34ce43884345",
+  "kits": 60,
+  "shelter": "north",
+  "transitions": [
+    "reserved",
+    "departed",
+    "completed"
+  ],
+  "eastOrdersUnchanged": true,
+  "trace": [
+    {
+      "id": "b8ceaff8-a7dd-45f1-861c-eaefb3f375ad",
+      "timestamp": "2026-10-27T14:22:04.310Z",
+      "traceId": "mission-8c1b59c9-f318-4950-b4c9-6a5fc02f04b4",
+      "agent": "Executor",
+      "action": "reserved",
+      "target": "Watcher",
+      "detail": {
+        "orderIds": [
+          "dispatch-0268fbb6-9766-4173-abac-33496d877896",
+          "dispatch-ca30fcf5-a90d-402c-8e64-4bd28609a5c5"
+        ],
+        "shortfall": 0,
+        "retained": 0,
+        "usage": [
+          {
+            "agent": "Cartographer",
+            "attempt": 0,
+            "status": 502,
+            "accounting": "unavailable for failed request",
+            "inputChars": 1723
+          },
+          {
+            "agent": "Cartographer",
+            "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+            "usage": {
+              "prompt_tokens": 450,
+              "completion_tokens": 2624,
+              "total_tokens": 3074
+            },
+            "accounting": "provider-reported",
+            "inputChars": 1723,
+            "outputChars": 46
+          },
+          {
+            "agent": "Planner",
+            "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+            "usage": {
+              "prompt_tokens": 1034,
+              "completion_tokens": 1130,
+              "total_tokens": 2164
+            },
+            "accounting": "provider-reported",
+            "inputChars": 1719,
+            "outputChars": 206
+          },
+          {
+            "agent": "Challenger",
+            "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+            "usage": {
+              "prompt_tokens": 776,
+              "completion_tokens": 1359,
+              "total_tokens": 2135
+            },
+            "accounting": "provider-reported",
+            "inputChars": 1688,
+            "outputChars": 276
+          }
+        ]
+      }
+    },
+    {
+      "id": "e70428ac-30f1-420a-8ecd-746aee797b33",
+      "timestamp": "2026-10-27T14:26:54.732Z",
+      "traceId": "mission-8c1b59c9-f318-4950-b4c9-6a5fc02f04b4",
+      "agent": "Executor",
+      "action": "reserved",
+      "target": "Watcher",
+      "detail": {
+        "orderIds": [
+          "dispatch-8b639ad6-38db-4c79-bc45-34ce43884345",
+          "dispatch-0268fbb6-9766-4173-abac-33496d877896"
+        ],
+        "shortfall": 0,
+        "retained": 1,
+        "usage": [
+          {
+            "agent": "Cartographer",
+            "attempt": 0,
+            "status": 502,
+            "accounting": "unavailable for failed request",
+            "inputChars": 1686
+          },
+          {
+            "agent": "Cartographer",
+            "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+            "usage": {
+              "prompt_tokens": 435,
+              "completion_tokens": 3313,
+              "total_tokens": 3748
+            },
+            "accounting": "provider-reported",
+            "inputChars": 1686,
+            "outputChars": 229
+          },
+          {
+            "agent": "Planner",
+            "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+            "usage": {
+              "prompt_tokens": 698,
+              "completion_tokens": 1214,
+              "total_tokens": 1912
+            },
+            "accounting": "provider-reported",
+            "inputChars": 1256,
+            "outputChars": 152
+          },
+          {
+            "agent": "Challenger",
+            "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+            "usage": {
+              "prompt_tokens": 1212,
+              "completion_tokens": 1610,
+              "total_tokens": 2822
+            },
+            "accounting": "provider-reported",
+            "inputChars": 3529,
+            "outputChars": 140
+          },
+          {
+            "agent": "Planner",
+            "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+            "usage": {
+              "prompt_tokens": 635,
+              "completion_tokens": 2011,
+              "total_tokens": 2646
+            },
+            "accounting": "provider-reported",
+            "inputChars": 1614,
+            "outputChars": 196
+          },
+          {
+            "agent": "Challenger",
+            "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+            "usage": {
+              "prompt_tokens": 1212,
+              "completion_tokens": 2261,
+              "total_tokens": 3473
+            },
+            "accounting": "provider-reported",
+            "inputChars": 3529,
+            "outputChars": 203
+          }
+        ]
+      }
+    },
+    {
+      "id": "b1f88d90-cf6e-4d4b-9db8-b40ebadc6b45",
+      "timestamp": "2026-10-27T14:35:07.647Z",
+      "traceId": "mission-8c1b59c9-f318-4950-b4c9-6a5fc02f04b4",
+      "agent": "Executor",
+      "action": "released",
+      "detail": {
+        "orderId": "dispatch-8b639ad6-38db-4c79-bc45-34ce43884345",
+        "kits": 60,
+        "checks": [
+          "stock",
+          "capacity",
+          "availability",
+          "maintenance",
+          "route",
+          "deadline",
+          "source versions"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,513 @@
+{
+  "generatedAt": "2026-10-24T13:18:42.797Z",
+  "mode": "sample",
+  "policy": "Deterministic policies; no LLM or live sponsor queries.",
+  "mission": {
+    "demands": [
+      {
+        "shelterId": "east",
+        "kits": 35
+      },
+      {
+        "shelterId": "south",
+        "kits": 45
+      }
+    ],
+    "deadlineMinutes": 90,
+    "idempotencyKey": "example-two-shelters",
+    "id": "mission-17a81b56-cc60-4f49-8878-7d861d1aec74",
+    "createdAt": "2026-10-24T13:18:42.722Z",
+    "deadlineAt": "2026-10-24T14:48:42.722Z",
+    "status": "committed",
+    "reason": "80 kits reserved; 0 existing commitments preserved.",
+    "traceId": "mission-17a81b56-cc60-4f49-8878-7d861d1aec74",
+    "mode": "sample",
+    "usage": [],
+    "engine": {
+      "name": "Meterless Markovian",
+      "status": "completed",
+      "chunks": [
+        {
+          "id": 1,
+          "tokens": 9,
+          "carryover": "",
+          "content": "Approved 2 allocations; shortfall 0."
+        }
+      ],
+      "chunkConfig": {
+        "chunkSize": 4000,
+        "maxChunks": 3,
+        "carryoverTokens": 256,
+        "overlapTokens": 0
+      },
+      "durationMs": 30,
+      "accounting": "Engine estimates cover chunk text only. Provider usage below covers every model call. No measured savings claim."
+    }
+  },
+  "orders": [
+    {
+      "depotId": "depot-east",
+      "shelterId": "south",
+      "vehicleId": "V4",
+      "kits": 45,
+      "routeIds": [
+        "east-link",
+        "south-east"
+      ],
+      "minutes": 19,
+      "id": "dispatch-42d238ba-3520-4376-ae3f-6d273ea31d17",
+      "missionId": "mission-17a81b56-cc60-4f49-8878-7d861d1aec74",
+      "status": "reserved",
+      "createdAt": "2026-10-24T13:18:42.781Z",
+      "expiresAt": "2026-10-24T13:33:42.781Z",
+      "deadlineAt": "2026-10-24T14:48:42.722Z",
+      "evidence": [
+        {
+          "table": "inventory",
+          "id": "depot-east",
+          "version": 1,
+          "hash": "ef26742f5e76b74b0b66",
+          "observedAt": "2026-10-24T13:18:42.729Z",
+          "source": "sample:inventory",
+          "query": "local fixture read"
+        },
+        {
+          "table": "shelters",
+          "id": "south",
+          "version": 1,
+          "hash": "1d22eaf442afacc368de",
+          "observedAt": "2026-10-24T13:18:42.733Z",
+          "source": "sample:shelters",
+          "query": "local fixture read"
+        },
+        {
+          "table": "fleet",
+          "id": "V4",
+          "version": 1,
+          "hash": "2844e8c24f418eae9a84",
+          "observedAt": "2026-10-24T13:18:42.737Z",
+          "source": "sample:fleet",
+          "query": "local fixture read"
+        },
+        {
+          "table": "roads",
+          "id": "east-link",
+          "version": 1,
+          "hash": "4a259be9a178e59cf9ba",
+          "observedAt": "2026-10-24T13:18:42.743Z",
+          "source": "sample:roads",
+          "query": "local fixture read"
+        },
+        {
+          "table": "roads",
+          "id": "south-east",
+          "version": 1,
+          "hash": "39417feebd141887152e",
+          "observedAt": "2026-10-24T13:18:42.743Z",
+          "source": "sample:roads",
+          "query": "local fixture read"
+        },
+        {
+          "table": "maintenance",
+          "id": "V4",
+          "version": 1,
+          "hash": "53c15bc1b2ce3c260376",
+          "observedAt": "2026-10-24T13:18:42.760Z",
+          "source": "sample:maintenance",
+          "query": "local fixture read"
+        }
+      ],
+      "checks": [
+        "stock",
+        "capacity",
+        "availability",
+        "maintenance",
+        "route",
+        "deadline",
+        "source versions"
+      ],
+      "reason": "Preconditions checked against current authoritative sandbox state."
+    },
+    {
+      "depotId": "depot-east",
+      "shelterId": "east",
+      "vehicleId": "V3",
+      "kits": 35,
+      "routeIds": [
+        "east-link",
+        "east-shelter"
+      ],
+      "minutes": 15,
+      "id": "dispatch-b02284e9-2015-4b41-bf0c-ea504344c8c0",
+      "missionId": "mission-17a81b56-cc60-4f49-8878-7d861d1aec74",
+      "status": "reserved",
+      "createdAt": "2026-10-24T13:18:42.781Z",
+      "expiresAt": "2026-10-24T13:33:42.781Z",
+      "deadlineAt": "2026-10-24T14:48:42.722Z",
+      "evidence": [
+        {
+          "table": "inventory",
+          "id": "depot-east",
+          "version": 1,
+          "hash": "ef26742f5e76b74b0b66",
+          "observedAt": "2026-10-24T13:18:42.729Z",
+          "source": "sample:inventory",
+          "query": "local fixture read"
+        },
+        {
+          "table": "shelters",
+          "id": "east",
+          "version": 1,
+          "hash": "d8305ee97133cdb0cd3a",
+          "observedAt": "2026-10-24T13:18:42.733Z",
+          "source": "sample:shelters",
+          "query": "local fixture read"
+        },
+        {
+          "table": "fleet",
+          "id": "V3",
+          "version": 1,
+          "hash": "8efe28ff537d19fbb0a7",
+          "observedAt": "2026-10-24T13:18:42.737Z",
+          "source": "sample:fleet",
+          "query": "local fixture read"
+        },
+        {
+          "table": "roads",
+          "id": "east-link",
+          "version": 1,
+          "hash": "4a259be9a178e59cf9ba",
+          "observedAt": "2026-10-24T13:18:42.743Z",
+          "source": "sample:roads",
+          "query": "local fixture read"
+        },
+        {
+          "table": "roads",
+          "id": "east-shelter",
+          "version": 1,
+          "hash": "1647fc846de292346099",
+          "observedAt": "2026-10-24T13:18:42.743Z",
+          "source": "sample:roads",
+          "query": "local fixture read"
+        },
+        {
+          "table": "maintenance",
+          "id": "V3",
+          "version": 1,
+          "hash": "aa93e6370549f16973b9",
+          "observedAt": "2026-10-24T13:18:42.760Z",
+          "source": "sample:maintenance",
+          "query": "local fixture read"
+        }
+      ],
+      "checks": [
+        "stock",
+        "capacity",
+        "availability",
+        "maintenance",
+        "route",
+        "deadline",
+        "source versions"
+      ],
+      "reason": "Preconditions checked against current authoritative sandbox state."
+    }
+  ],
+  "trace": [
+    {
+      "id": "5924e571-7e1c-4598-97b7-d6a15610c557",
+      "timestamp": "2026-10-24T13:18:42.730Z",
+      "traceId": "mission-17a81b56-cc60-4f49-8878-7d861d1aec74",
+      "agent": "Cartographer",
+      "action": "sample_source_read",
+      "target": "Planner",
+      "detail": {
+        "table": "inventory",
+        "rows": 2,
+        "versions": [
+          {
+            "id": "depot-east",
+            "version": 1
+          },
+          {
+            "id": "depot-west",
+            "version": 1
+          }
+        ],
+        "provider": "local deterministic sample"
+      }
+    },
+    {
+      "id": "7efb0dc3-d28d-45e2-9ea1-b13ea240396d",
+      "timestamp": "2026-10-24T13:18:42.734Z",
+      "traceId": "mission-17a81b56-cc60-4f49-8878-7d861d1aec74",
+      "agent": "Cartographer",
+      "action": "sample_source_read",
+      "target": "Planner",
+      "detail": {
+        "table": "shelters",
+        "rows": 4,
+        "versions": [
+          {
+            "id": "north",
+            "version": 1
+          },
+          {
+            "id": "east",
+            "version": 1
+          },
+          {
+            "id": "south",
+            "version": 1
+          },
+          {
+            "id": "west",
+            "version": 1
+          }
+        ],
+        "provider": "local deterministic sample"
+      }
+    },
+    {
+      "id": "2c2a494f-f436-4874-a0ab-141fef73f5e7",
+      "timestamp": "2026-10-24T13:18:42.740Z",
+      "traceId": "mission-17a81b56-cc60-4f49-8878-7d861d1aec74",
+      "agent": "Cartographer",
+      "action": "sample_source_read",
+      "target": "Planner",
+      "detail": {
+        "table": "fleet",
+        "rows": 5,
+        "versions": [
+          {
+            "id": "V1",
+            "version": 1
+          },
+          {
+            "id": "V2",
+            "version": 1
+          },
+          {
+            "id": "V3",
+            "version": 1
+          },
+          {
+            "id": "V4",
+            "version": 1
+          },
+          {
+            "id": "V5",
+            "version": 1
+          }
+        ],
+        "provider": "local deterministic sample"
+      }
+    },
+    {
+      "id": "85c5272a-7997-467e-8e41-46bc277b7de7",
+      "timestamp": "2026-10-24T13:18:42.747Z",
+      "traceId": "mission-17a81b56-cc60-4f49-8878-7d861d1aec74",
+      "agent": "Cartographer",
+      "action": "sample_source_read",
+      "target": "Planner",
+      "detail": {
+        "table": "roads",
+        "rows": 9,
+        "versions": [
+          {
+            "id": "west-link",
+            "version": 1
+          },
+          {
+            "id": "east-link",
+            "version": 1
+          },
+          {
+            "id": "bridge",
+            "version": 1
+          },
+          {
+            "id": "north-east",
+            "version": 1
+          },
+          {
+            "id": "west-shelter",
+            "version": 1
+          },
+          {
+            "id": "east-shelter",
+            "version": 1
+          },
+          {
+            "id": "south-west",
+            "version": 1
+          },
+          {
+            "id": "south-east",
+            "version": 1
+          },
+          {
+            "id": "bypass",
+            "version": 1
+          }
+        ],
+        "provider": "local deterministic sample"
+      }
+    },
+    {
+      "id": "0bc7a9b7-879e-4479-97a8-cc58ee63708e",
+      "timestamp": "2026-10-24T13:18:42.750Z",
+      "traceId": "mission-17a81b56-cc60-4f49-8878-7d861d1aec74",
+      "agent": "Markovian",
+      "action": "resume",
+      "detail": {
+        "step": 0,
+        "carryover": "",
+        "mode": "sample",
+        "exactConstraints": "Re-read from structured world state; never from compressed text."
+      }
+    },
+    {
+      "id": "27904112-136f-4fd6-93f6-fb6f9da0d95f",
+      "timestamp": "2026-10-24T13:18:42.753Z",
+      "traceId": "mission-17a81b56-cc60-4f49-8878-7d861d1aec74",
+      "agent": "Planner",
+      "action": "propose",
+      "target": "Challenger",
+      "detail": {
+        "step": 0,
+        "id": "option-1",
+        "allocations": [
+          {
+            "depotId": "depot-east",
+            "shelterId": "east",
+            "vehicleId": "V3",
+            "kits": 35,
+            "routeIds": [
+              "east-link",
+              "east-shelter"
+            ],
+            "minutes": 15
+          },
+          {
+            "depotId": "depot-east",
+            "shelterId": "south",
+            "vehicleId": "V4",
+            "kits": 45,
+            "routeIds": [
+              "east-link",
+              "south-east"
+            ],
+            "minutes": 19
+          }
+        ],
+        "shortfall": 0,
+        "minutes": 34,
+        "reason": "Deterministic sample policy: satisfy demand, then minimize travel time.",
+        "policy": "deterministic search"
+      }
+    },
+    {
+      "id": "60f69837-3379-4075-a59e-4e8bd5c0b558",
+      "timestamp": "2026-10-24T13:18:42.756Z",
+      "traceId": "mission-17a81b56-cc60-4f49-8878-7d861d1aec74",
+      "agent": "Challenger",
+      "action": "request_evidence",
+      "target": "Cartographer",
+      "detail": {
+        "table": "maintenance",
+        "reason": "Roster availability alone does not establish current vehicle clearance."
+      }
+    },
+    {
+      "id": "64a56980-f74d-4a6a-aa7c-fc29cb4b4b69",
+      "timestamp": "2026-10-24T13:18:42.762Z",
+      "traceId": "mission-17a81b56-cc60-4f49-8878-7d861d1aec74",
+      "agent": "Cartographer",
+      "action": "sample_source_read",
+      "target": "Planner",
+      "detail": {
+        "table": "maintenance",
+        "rows": 5,
+        "versions": [
+          {
+            "id": "V1",
+            "version": 1
+          },
+          {
+            "id": "V2",
+            "version": 1
+          },
+          {
+            "id": "V3",
+            "version": 1
+          },
+          {
+            "id": "V4",
+            "version": 1
+          },
+          {
+            "id": "V5",
+            "version": 1
+          }
+        ],
+        "provider": "local deterministic sample"
+      }
+    },
+    {
+      "id": "f3ea1d58-ca82-4187-882c-587bd7ec006c",
+      "timestamp": "2026-10-24T13:18:42.773Z",
+      "traceId": "mission-17a81b56-cc60-4f49-8878-7d861d1aec74",
+      "agent": "Cartographer",
+      "action": "reconcile",
+      "target": "Challenger",
+      "detail": {
+        "conflicts": [
+          {
+            "vehicle": "V1",
+            "rosterAvailable": true,
+            "hold": true,
+            "version": 1
+          }
+        ],
+        "source": "Current maintenance ledger"
+      }
+    },
+    {
+      "id": "7456ff80-cdf9-4744-a481-92e021b42dc8",
+      "timestamp": "2026-10-24T13:18:42.777Z",
+      "traceId": "mission-17a81b56-cc60-4f49-8878-7d861d1aec74",
+      "agent": "Challenger",
+      "action": "approve",
+      "target": "Executor",
+      "detail": {
+        "checks": [
+          "stock",
+          "capacity",
+          "availability",
+          "maintenance",
+          "route continuity",
+          "arrival deadline"
+        ],
+        "reason": "All explicit preconditions passed.",
+        "shortfall": 0
+      }
+    },
+    {
+      "id": "ebf81618-11cc-4146-b78c-b22ac3402445",
+      "timestamp": "2026-10-24T13:18:42.795Z",
+      "traceId": "mission-17a81b56-cc60-4f49-8878-7d861d1aec74",
+      "agent": "Executor",
+      "action": "reserved",
+      "target": "Watcher",
+      "detail": {
+        "orderIds": [
+          "dispatch-42d238ba-3520-4376-ae3f-6d273ea31d17",
+          "dispatch-b02284e9-2015-4b41-bf0c-ea504344c8c0"
+        ],
+        "shortfall": 0,
+        "retained": 0,
+        "usage": []
+      }
+    }
+  ]
+}

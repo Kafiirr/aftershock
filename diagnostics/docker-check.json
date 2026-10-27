@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "checkedAt": "2026-10-24T13:19:00.502936+00:00",
+  "image": "aftershock:local",
+  "credentialsProvided": false,
+  "mode": "sample",
+  "requestedKits": 47,
+  "reservedKits": 47,
+  "missionId": "mission-04e3083d-55eb-4428-9ec8-eee2baf66cc4",
+  "checks": [
+    "clean container start",
+    "no credentials",
+    "generated reservation",
+    "generated trace"
+  ]
+}

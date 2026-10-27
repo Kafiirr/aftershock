@@ -1,0 +1,12 @@
+{
+  "checked_at": "2026-10-23T12:38:34.662014+00:00",
+  "authentication": "saved ZETARIS_API_KEY as Bearer token",
+  "sql": "SELECT 1 AS one",
+  "passed": true,
+  "api_url": "http://localhost:8888/api/v1.0",
+  "org_id": 1,
+  "http_status": 200,
+  "result": {
+    "one": 1
+  }
+}

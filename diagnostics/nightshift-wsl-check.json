@@ -1,0 +1,22 @@
+{
+  "transport": "direct_wsl_http",
+  "attempts": [
+    {
+      "base_url": "http://10.70.26.185:8088/v1",
+      "authenticated_models": true,
+      "route_available": true
+    }
+  ],
+  "passed": true,
+  "base_url": "http://10.70.26.185:8088/v1",
+  "requested_route": "meterless/auto",
+  "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+  "response_matches": true,
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 13,
+    "completion_tokens": 4,
+    "total_tokens": 17
+  },
+  "checked_at_utc": "2026-10-23T07:22:38.957024+00:00"
+}

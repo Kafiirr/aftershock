@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>AFTERSHOCK · Mission control</title>
+    <meta
+      name="description"
+      content="Keep relief commitments valid as the world changes. A synthetic dispatch sandbox."
+    />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <a class="brand" href="/" aria-label="Aftershock home"
+        ><span class="brandmark">⌁</span> AFTERSHOCK<span class="branddot"
+          >01</span
+        ></a
+      >
+      <div class="workspace-label">OPERATIONS WORKSPACE</div>
+      <nav>
+        <a class="navlink active" href="#overview"
+          ><span>◈</span> Mission control <b>01</b></a
+        ><a class="navlink" href="#commitments"><span>▤</span> Commitments</a
+        ><a class="navlink" href="#activity"
+          ><span>⌘</span> Evidence & activity</a
+        >
+      </nav>
+      <div class="sidebar-note">
+        <span class="signal"></span> EVERY ACTION HAS A WHY
+        <p>Evidence changes.<br />Commitments adapt.</p>
+        <div class="line"></div>
+        <span class="tiny"
+          >FICTIONAL DISTRICT<br />Synthetic data · Sandbox actions</span
+        >
+      </div>
+      <div class="sidebar-foot">
+        <span class="avatar">AS</span>
+        <div>Relief coordination<small>Local operations console</small></div>
+      </div>
+    </aside>
+    <main id="overview">
+      <header class="topbar">
+        <div>
+          <span class="breadcrumb">Workspace</span
+          ><span class="slash">/</span> Mission control
+        </div>
+        <div class="header-right">
+          <span id="mode" class="mode">Connecting</span
+          ><span id="clock" class="clock"></span>
+        </div>
+      </header>
+      <section class="intro">
+        <div>
+          <div class="eyebrow">
+            <span class="signal"></span> KARYA DISTRICT / RELIEF OPERATIONS
+          </div>
+          <h1>Keep the mission alive<span>.</span></h1>
+          <p>Plans change. Your commitments stay accountable.</p>
+        </div>
+        <button id="new-mission" class="button primary">
+          <span>＋</span> New mission
+        </button>
+      </section>
+      <div id="connection-error" class="notice hidden" role="alert"></div>
+      <div id="run-status" class="notice hidden" role="status"></div>
+      <section class="metrics" aria-label="Operation metrics">
+        <article>
+          <div>KITS COMMITTED <span>↗</span></div>
+          <strong id="kits">0</strong>
+          <p>Reserved, in transit or delivered</p>
+        </article>
+        <article>
+          <div>PROTECTED ORDERS <span>◇</span></div>
+          <strong id="protected">0</strong>
+          <p>Awaiting release with evidence</p>
+        </article>
+        <article>
+          <div>NEEDS ATTENTION <span>↳</span></div>
+          <strong id="attention">0</strong>
+          <p>Held orders or blocked missions</p>
+        </article>
+        <article>
+          <div>SOURCE SYSTEMS <span>⤢</span></div>
+          <strong>5<span class="small-unit"> feeds</span></strong>
+          <p>Inventory · needs · fleet · roads · holds</p>
+        </article>
+      </section>
+      <section class="operation-grid">
+        <div class="panel map-panel">
+          <div class="panel-heading">
+            <div>
+              <h2>District overview</h2>
+              <span class="subtle"
+                >Every route is attached to a commitment.</span
+              >
+            </div>
+            <span class="pill">SYNTHETIC DISTRICT</span>
+          </div>
+          <div class="map-canvas">
+            <svg
+              id="district-map"
+              viewBox="0 0 900 470"
+              role="img"
+              aria-label="Fictional district road graph showing current road conditions and dispatch routes"
+            ></svg>
+            <div class="map-coordinate">
+              KARYA / SECTOR 04<br /><b>OPERATIONS MAP</b>
+            </div>
+            <div class="map-compass">N<br />↑</div>
+            <div class="map-legend">
+              <span><i class="green"></i> Committed route</span
+              ><span><i class="red"></i> Closed road</span
+              ><span><i class="gray"></i> Available road</span>
+            </div>
+          </div>
+          <div class="map-footer">
+            <span
+              ><i class="signal"></i> <span id="roads-open">—</span> roads
+              open</span
+            ><span>2 logistics hubs <span class="sep">/</span> 4 shelters</span
+            ><button class="textbutton" id="edit-source">
+              Edit source record ↗
+            </button>
+          </div>
+        </div>
+        <aside class="panel situation">
+          <div class="panel-heading">
+            <div>
+              <div class="eyebrow orange-text">CHANGE THE FACTS</div>
+              <h2>Put the plan to the test.</h2>
+            </div>
+            <span class="incident-icon">ϟ</span>
+          </div>
+          <p class="situation-copy">
+            Close a road. Watch affected orders pause, then follow the agents as
+            they find another way.
+          </p>
+          <label for="incident-road">ROAD RECORD</label
+          ><select id="incident-road" aria-label="Road to change"></select>
+          <div id="road-summary" class="road-summary"></div>
+          <button class="button incident" id="toggle-road">
+            Close road <span>↗</span>
+          </button>
+          <div class="safety-note">
+            <span>◇</span>
+            <p>
+              Only unreleased orders can be repaired automatically. Departed
+              vehicles are never rolled back.
+            </p>
+          </div>
+          <div class="agent-roster">
+            <div class="eyebrow">ON THE MISSION</div>
+            <div>
+              <i class="agent-icon blue">C</i
+              ><span>Cartographer<small>Connects the evidence</small></span
+              ><b>01</b>
+            </div>
+            <div>
+              <i class="agent-icon purple">P</i
+              ><span>Planner<small>Chooses a feasible plan</small></span
+              ><b>02</b>
+            </div>
+            <div>
+              <i class="agent-icon orange">C</i
+              ><span>Challenger<small>Tests the assumptions</small></span
+              ><b>03</b>
+            </div>
+          </div>
+        </aside>
+      </section>
+      <section id="commitments" class="bottom-grid">
+        <div class="panel">
+          <div class="panel-heading">
+            <div>
+              <h2>
+                Living commitments <span id="order-count" class="count">0</span>
+              </h2>
+              <span class="subtle"
+                >Select an order to inspect what keeps it valid.</span
+              >
+            </div>
+            <select id="order-filter" aria-label="Filter commitments">
+              <option value="current">Current orders</option>
+              <option value="all">Include history</option>
+            </select>
+          </div>
+          <div id="orders" class="orders"></div>
+        </div>
+        <aside class="panel evidence">
+          <div class="panel-heading">
+            <h2>The evidence behind it</h2>
+            <span>↗</span>
+          </div>
+          <div id="evidence"></div>
+        </aside>
+      </section>
+      <section id="activity" class="panel activity-panel">
+        <div class="panel-heading">
+          <div>
+            <h2>Mission activity</h2>
+            <span class="subtle"
+              >Queries, challenges and receipts generated by actual runs.</span
+            >
+          </div>
+          <button id="export" class="textbutton">Export evidence ↓</button>
+        </div>
+        <div id="missions" class="mission-strip"></div>
+        <div id="trace" class="trace"></div>
+      </section>
+      <footer class="page-footer">
+        <b>AFTERSHOCK</b
+        ><span>Keep the mission alive when the plan breaks.</span
+        ><span id="updated">Waiting for source state</span>
+      </footer>
+    </main>
+    <dialog id="mission-dialog">
+      <form id="mission-form">
+        <div class="dialog-heading">
+          <div>
+            <div class="eyebrow">DEFINE THE OUTCOME</div>
+            <h2>Start a relief mission.</h2>
+          </div>
+          <button type="button" class="close-dialog" aria-label="Close">
+            ×
+          </button>
+        </div>
+        <p>
+          Set the kits needed at each shelter. Enter zero to leave a shelter out
+          of this mission.
+        </p>
+        <div id="demand-fields" class="demand-fields"></div>
+        <label for="deadline">ARRIVE WITHIN</label>
+        <div class="deadline-field">
+          <input
+            id="deadline"
+            type="number"
+            min="1"
+            max="360"
+            value="90"
+            required
+          /><span>minutes from now</span>
+        </div>
+        <p class="subtle">
+          This deadline includes investigation and travel time. Use 90 minutes
+          for the demo. You control departure.
+        </p>
+        <div class="dialog-actions">
+          <button type="button" class="button secondary close-dialog">
+            Cancel</button
+          ><button class="button primary" type="submit">
+            Investigate & reserve →
+          </button>
+        </div>
+      </form>
+    </dialog>
+    <dialog id="source-dialog">
+      <form id="source-form">
+        <div class="dialog-heading">
+          <div>
+            <div class="eyebrow">SYNTHETIC SOURCE SYSTEM</div>
+            <h2>Change a source record.</h2>
+          </div>
+          <button type="button" class="close-dialog" aria-label="Close">
+            ×
+          </button>
+        </div>
+        <p>
+          This changes the underlying data. The dependency watcher will inspect
+          affected commitments.
+        </p>
+        <label for="source-table">SOURCE</label
+        ><select id="source-table">
+          <option value="inventory">Depot inventory / SQLite</option>
+          <option value="shelters">Shelter requests / CSV</option>
+          <option value="fleet">Fleet roster / JSON feed</option>
+          <option value="roads">Road access / JSON feed</option>
+          <option value="maintenance">
+            Maintenance holds / JSON feed
+          </option></select
+        ><label for="source-record">RECORD</label
+        ><select id="source-record"></select>
+        <div id="source-fields"></div>
+        <div class="dialog-actions">
+          <button type="button" class="button secondary close-dialog">
+            Cancel</button
+          ><button class="button primary">Save source change →</button>
+        </div>
+      </form>
+    </dialog>
+    <div id="toast" class="toast hidden" role="status"></div>
+    <script src="/app.js"></script>
+  </body>
+</html>

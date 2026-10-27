@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "checkedAt": "2026-10-24T13:17:43.760Z",
+  "viewports": [
+    1440,
+    390
+  ],
+  "checks": [
+    "create mission through form",
+    "source closure through control",
+    "real repair state",
+    "unaffected order preserved",
+    "source editor opens",
+    "trace details survive refresh",
+    "mobile no horizontal overflow",
+    "mobile mission dialog",
+    "no JavaScript exceptions"
+  ]
+}

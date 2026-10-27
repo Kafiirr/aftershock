@@ -1,0 +1,12 @@
+services:
+  aftershock:
+    build: .
+    ports:
+      - "127.0.0.1:4317:4317"
+    environment:
+      APP_MODE: sample
+      APP_HOST: 0.0.0.0
+    volumes:
+      - aftershock-data:/app/data/runtime
+volumes:
+  aftershock-data:
